@@ -18,105 +18,45 @@ private:
 
 public:
 
-	void set_first_name(std::string string)
-	{
-		first_name = string;
-	}
+	void set_first_name(std::string string) 	{	first_name = string;		}
 
-	void set_last_name(std::string string)
-	{
-		last_name = string;
-	}
+	void set_last_name(std::string string)		{	last_name = string;			}
 
-	void set_nickname(std::string string)
-	{
-		nickname = string;
-	}
+	void set_nickname(std::string string)		{	nickname = string;			}
 
-	void set_login(std::string string)
-	{
-		login = string;
-	}
+	void set_login(std::string string)			{	login = string;				}
 
-	void set_postal_adress(std::string string)
-	{
-		postal_adress = string;
-	}
+	void set_postal_adress(std::string string)	{	postal_adress = string;		}
 
-	void set_phone_number(std::string string)
-	{
-		phone_number = string;
-	}
+	void set_phone_number(std::string string)	{	phone_number = string;		}
 
-	void set_birthday_date(std::string string)
-	{
-		birthday_date = string;
-	}
+	void set_birthday_date(std::string string)	{	birthday_date = string;		}
 
-	void set_favorite_meal(std::string string)
-	{
-		favorite_meal = string;
-	}
+	void set_favorite_meal(std::string string)	{	favorite_meal = string;		}
 
-	void set_underwear_color(std::string string)
-	{
-		underwear_color = string;
-	}
+	void set_underwear_color(std::string string){	underwear_color = string;	}
 
-	void set_darkest_secret(std::string string)
-	{
-		darkest_secret = string;
-	}
+	void set_darkest_secret(std::string string)	{	darkest_secret = string;	}
 
-	std::string get_first_name()
-	{
-		return (first_name);
-	}
+	std::string get_first_name()				{	return (first_name);		}
 
-	std::string get_last_name()
-	{
-		return (last_name);
-	}
+	std::string get_last_name()					{	return (last_name);			}
 
-	std::string get_nickname()
-	{
-		return (nickname);
-	}
+	std::string get_nickname()					{	return (nickname);			}
 
-	std::string get_login()
-	{
-		return (login);
-	}
+	std::string get_login()						{	return (login);				}
 
-	std::string get_postal_adress()
-	{
-		return (postal_adress);
-	}
+	std::string get_postal_adress()				{	return (postal_adress);		}
 
-	std::string get_phone_number()
-	{
-		return (phone_number);
-	}
+	std::string get_phone_number()				{	return (phone_number);		}
 
-	std::string get_birthday_date()
-	{
-		return (birthday_date);
-	}
+	std::string get_birthday_date()				{	return (birthday_date);		}
 
-	std::string get_favorite_meal()
-	{
-		return (favorite_meal);
-	}
+	std::string get_favorite_meal()				{	return (favorite_meal);		}
 
-	std::string get_underwear_color()
-	{
-		return (underwear_color);
-	}
+	std::string get_underwear_color()			{	return (underwear_color);	}
 
-	std::string get_darkest_secret()
-	{
-		return (darkest_secret);
-	}
+	std::string get_darkest_secret()			{	return (darkest_secret);	}
 };
 
 
@@ -128,113 +68,89 @@ private:
 
 public:
 
-	Phonebook()
-	{
-		number_of_contacts = 0;
-	}
+	Phonebook()		{	number_of_contacts = 0;	}
 
-	int		check_string_for_digits(std::string command)
-	{
-		int i;
+	int		get_number_of_contacts() {	return (number_of_contacts);	}
 
-		i = -1;
-		if (command.size() < 1)
-			return (-1);
-		while (command[++i])
-		{
-			if (!isdigit(command[i]))
-				return (-1);
-		}
-		return (std::stoi(command));
-	}
-
-	void	set_contacts()
+	int		add_contacts()
 	{
 		std::string command;
 		int			i;
 
 		i = -1;
 		if (number_of_contacts < 8)
-			set_contact(&book[number_of_contacts++]);
+			set_contact(number_of_contacts++);
 		else
-		{
-			std::cout << std::setw(35) << "Contact list full!" << std::endl;
-			std::cout << std::setw(35) << "Please, select index of contact" << std::endl;
-			std::cout << std::setw(35) << "that you want to replace:" << std::endl;
-			print_contact_list();
-			std::getline(std::cin, command);
-			i = check_string_for_digits(command);
-			if (i < 0 or i > 7)
-				std::cout << std::setw(35) << "Some shit in input data!" << std::endl;
-			else
-				set_contact(&book[i]);
-		}
+			return (1);
+		return (0);
 	}
 
-	void	print_full_contact(Contact contact)
+	void	print_full_contact(int i)
 	{
-		std::cout << std::setw(20) << "First name:|" << contact.get_first_name() << '|' << std::endl;
-		std::cout << std::setw(20) << "Last name:|" << contact.get_last_name() << '|' << std::endl;
-		std::cout << std::setw(20) << "Nickname:|" << contact.get_nickname() << '|' << std::endl;
-		std::cout << std::setw(20) << "Login:|" << contact.get_login() << '|' << std::endl;
-		std::cout << std::setw(20) << "Postal adress:|" << contact.get_postal_adress() << '|' << std::endl;
-		std::cout << std::setw(20) << "Phone number:|" << contact.get_phone_number() << '|' << std::endl;
-		std::cout << std::setw(20) << "Birthday date:|" << contact.get_birthday_date() << '|' << std::endl;
-		std::cout << std::setw(20) << "Favorite meal:|" << contact.get_favorite_meal() << '|' << std::endl;
-		std::cout << std::setw(20) << "Underwear color:|" << contact.get_underwear_color() << '|' << std::endl;
-		std::cout << std::setw(20) << "Darkest secret:|" << contact.get_darkest_secret() << '|' << std::endl;
+		std::cout << std::setw(20) << "First name:|" << book[i].get_first_name() << '|' << std::endl;
+		std::cout << std::setw(20) << "Last name:|" << book[i].get_last_name() << '|' << std::endl;
+		std::cout << std::setw(20) << "Nickname:|" << book[i].get_nickname() << '|' << std::endl;
+		std::cout << std::setw(20) << "Login:|" << book[i].get_login() << '|' << std::endl;
+		std::cout << std::setw(20) << "Postal adress:|" << book[i].get_postal_adress() << '|' << std::endl;
+		std::cout << std::setw(20) << "Phone number:|" << book[i].get_phone_number() << '|' << std::endl;
+		std::cout << std::setw(20) << "Birthday date:|" << book[i].get_birthday_date() << '|' << std::endl;
+		std::cout << std::setw(20) << "Favorite meal:|" << book[i].get_favorite_meal() << '|' << std::endl;
+		std::cout << std::setw(20) << "Underwear color:|" << book[i].get_underwear_color() << '|' << std::endl;
+		std::cout << std::setw(20) << "Darkest secret:|" << book[i].get_darkest_secret() << '|' << std::endl;
 	}
 
 	void	print_part_contact(Contact contact)
 	{
-			if (contact.get_first_name().size() > 10)
-				std::cout << "|" << std::setw(10) << contact.get_first_name().substr(0,9) + '.';
-			else
-				std::cout << "|" << std::setw(10) << contact.get_first_name();
-			if (contact.get_last_name().size() > 10)
-				std::cout << "|" << std::setw(10) << contact.get_last_name().substr(0,9) + '.';
-			else
-				std::cout << "|" << std::setw(10) << contact.get_last_name();
-			if (contact.get_nickname().size() > 10)
-				std::cout << "|" << std::setw(10) << contact.get_nickname().substr(0,9) + '.' << "|" << std::endl;
-			else
-				std::cout << "|" << std::setw(10) << contact.get_nickname() << "|" << std::endl;
+		if (contact.get_first_name().size() > 10)
+			std::cout << "|" << std::setw(10) << contact.get_first_name().substr(0,9) + '.';
+		else
+			std::cout << "|" << std::setw(10) << contact.get_first_name();
+		if (contact.get_last_name().size() > 10)
+			std::cout << "|" << std::setw(10) << contact.get_last_name().substr(0,9) + '.';
+		else
+			std::cout << "|" << std::setw(10) << contact.get_last_name();
+		if (contact.get_nickname().size() > 10)
+			std::cout << "|" << std::setw(10) << contact.get_nickname().substr(0,9) + '.' << "|" << std::endl;
+		else
+			std::cout << "|" << std::setw(10) << contact.get_nickname() << "|" << std::endl;
 	}
 
-	void	set_contact(Contact *contact)
+	void	set_contact(int i)
 	{
 		std::string	command;
 
-		std::cout << std::setw(45) << "Enter first name:" << std::endl;
+		std::cout.fill('-');
+		std::cout << std::setw(44) << std::left << "|Enter first name" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_first_name(command);
-		std::cout << std::setw(45) << "Enter last name:" << std::endl;
+		book[i].set_first_name(command);
+		std::cout << std::setw(44)<< std::left << "|Enter last name" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_last_name(command);
-		std::cout << std::setw(45) << "Enter nickname:" << std::endl;
+		book[i].set_last_name(command);
+		std::cout << std::setw(44) << std::left << "|Enter nickname" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_nickname(command);
-		std::cout << std::setw(45) << "Enter login:" << std::endl;
+		book[i].set_nickname(command);
+		std::cout << std::setw(44) << std::left << "|Enter login" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_login(command);
-		std::cout << std::setw(45) << "Enter postal adress:" << std::endl;
+		book[i].set_login(command);
+		std::cout << std::setw(44) << std::left << "|Enter postal adress" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_postal_adress(command);
-		std::cout << std::setw(45) << "Enter phone number:" << std::endl;
+		book[i].set_postal_adress(command);
+		std::cout << std::setw(44) << std::left << "|Enter phone number" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_phone_number(command);
-		std::cout << std::setw(45) << "Enter birthday date:" << std::endl;
+		book[i].set_phone_number(command);
+		std::cout << std::setw(44) << std::left << "|Enter birthday date" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_birthday_date(command);
-		std::cout << std::setw(45) << "Enter favorite meal:" << std::endl;
+		book[i].set_birthday_date(command);
+		std::cout << std::setw(44) << std::left << "|Enter favorite meal" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_favorite_meal(command);
-		std::cout << std::setw(45) << "Enter underwear color:" << std::endl;
+		book[i].set_favorite_meal(command);
+		std::cout << std::setw(44) << std::left << "|Enter underwear color" << "|" << std::endl;
 		std::getline(std::cin, command);
-		(*contact).set_underwear_color(command);
-		std::cout << std::setw(45) << "Enter darkest secret:" << std::endl;
+		book[i].set_underwear_color(command);
+		std::cout << std::setw(44) << std::left << "|Enter darkest secret" << "|" << std::endl << std::right;
 		std::getline(std::cin, command);
-		(*contact).set_darkest_secret(command);
+		book[i].set_darkest_secret(command);
+		std::cout.fill(' ');
 		return ;
 	}
 
@@ -259,24 +175,76 @@ public:
 		std::cout.fill('-');
 		std::cout << "|" << std::setw(44) << "|" << std::endl;
 		std::cout.fill(' ');
-		if (number_of_contacts > 0)
-		{
-			std::cout.fill('-');
-			std::cout << "|" << std::setw(43) << "Select index of contact" << "|" << std::endl;
-			std::cout << "|" << std::setw(43) << "that you want to view in full" << "|" << std::endl;
-			std::cout.fill(' ');
-			std::getline(std::cin, command);
-			i = check_string_for_digits(command);
-			if ((i < 0 or i > 7) or i >= number_of_contacts)
-				std::cout << std::setw(43) << "Some shit in input data!|" << std::endl;
-			else
-				print_full_contact(book[i]);
-		}
-		std::cout.fill('-');
-		std::cout << "|" << std::setw(44) << "|" << std::endl;
-		std::cout.fill(' ');
 	}
 };
+
+int		check_string_for_digits(std::string command)
+{
+	int i;
+
+	i = -1;
+	if (command.size() < 1)
+		return (-1);
+	while (command[++i])
+	{
+		if (!isdigit(command[i]))
+			return (-1);
+	}
+	return (std::stoi(command));
+}
+
+void	print_other_inscription()
+{
+	std::cout.fill('-');
+	std::cout << "|" << std::setw(43) << "Select index of contact" << "|" << std::endl;
+	std::cout << "|" << std::setw(43) << "that you want to view in full" << "|" << std::endl;
+	std::cout.fill(' ');
+}
+
+void	add_contacts(Phonebook *phonebook)
+{
+	int			i;
+	std::string	command;
+
+	if ((*phonebook).add_contacts() == 0)
+		return ;
+	std::cout.fill('-');
+	std::cout << '|' << std::setw(44) << "Contact list full!|" << std::endl;
+	std::cout << '|' << std::setw(44) << "Please, select index of contact|" << std::endl;
+	std::cout << '|' << std::setw(44) << "that you want to replace:|" << std::endl;
+	std::cout.fill(' ');
+	(*phonebook).print_contact_list();
+	std::getline(std::cin, command);
+	i = check_string_for_digits(command);
+	if (i < 0 or i > 7)
+		std::cout << '|' << std::setw(44) << "Bad input data!" << std::endl;
+	else
+		(*phonebook).set_contact(i);
+	std::cout.fill('-');
+	std::cout << "|" << std::setw(44) << "|" << std::endl;
+	std::cout.fill(' ');
+}
+
+void	search_contacts(Phonebook *phonebook)
+{
+	int			i;
+	std::string	command;
+
+	(*phonebook).print_contact_list();
+	if ((*phonebook).get_number_of_contacts() > 0)
+	{
+		print_other_inscription();
+		std::getline(std::cin, command);
+		i = check_string_for_digits(command);
+		if ((i < 0 or i > 7) or i >= (*phonebook).get_number_of_contacts())
+			std::cout << '|' << std::setw(44) << "Bad input data!|" << std::endl;
+		else
+			(*phonebook).print_full_contact(i);
+	}
+	std::cout.fill('-');
+	std::cout << "|" << std::setw(44) << "|" << std::endl;
+	std::cout.fill(' ');
+}
 
 void	print_welcome_inscription()
 {
@@ -290,30 +258,27 @@ void	print_welcome_inscription()
 	std::cout.fill(' ');
 }
 
-
 int		main(void)
 {
 	std::string	command;
 	Phonebook	phonebook;
 
 	print_welcome_inscription();
-	while (1)
+	std::cout << "|" << std::setw(44) << "Enter the command: ADD, SEARCH OR EXIT|" << std::endl;
+	while (std::getline(std::cin, command))
 	{
-		std::cout << "|" << std::setw(44) << "Enter the command: ADD, SEARCH OR EXIT|" << std::endl;
-		std::getline(std::cin, command);
 		if (!std::strcmp("ADD", &command[0]))
-		{
-			phonebook.set_contacts();
-		}
+			add_contacts(&phonebook);
 		else if (!std::strcmp("SEARCH", &command[0]))
-			phonebook.print_contact_list();
-		else if (!std::strcmp("EXIT", &command[0]))
+			search_contacts(&phonebook);
+		else if (!std::strcmp("EXIT", &command[0]) or !std::strcmp("EXIT", &command[0]))
 		{
 			std::cout << "|" << std::setw(44) << "!Goodbye!Goodbye!Goodbye!Goodbye!Goodbye!|" << std::endl;
 			return(0);
 		}
 		else
 			std::cout << "You entered wrong command! Please, try again!" << std::endl;
+		std::cout << "|" << std::setw(44) << "Enter the command: ADD, SEARCH OR EXIT|" << std::endl;
 	}
 	return (0);
 }
