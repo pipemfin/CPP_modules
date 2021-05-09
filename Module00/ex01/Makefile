@@ -1,19 +1,23 @@
 NAME		= phonebook
 
-SRCS		= main.cpp
+MAKER		= Makefile
+
+HEADER		= Header.hpp
+
+SRCS		= main.cpp Phonebook.cpp Contact.cpp
 
 OBJS		= $(SRCS:.cpp=.o)
 
-CC		= clang++
+CC			= clang++
 
-RM		= rm -f
+RM			= rm -f
 
 CFLAGS		= -Wall -Wextra -Werror
 
 all:		$(NAME)
 
-$(NAME):	$(OBJS)
-			$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
+$(NAME):	$(OBJS) $(MAKER)
+			$(CC) $(CFLAGS) $(OBJS)  -o $(NAME)
 		
 clean:
 			$(RM) $(OBJS)
