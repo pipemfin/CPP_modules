@@ -7,12 +7,12 @@ void show_string_through_pointer(std::string *newline)
 
 void show_string_through_reference(std::string &newline)
 {
-	newline = "NEW";
 	std::cout << newline << std::endl;
 }
 
 int main(void)
 {
+	std::string newline1 = "XX";
 	std::string newline = "HI THIS IS BRAIN";
 	std::string *p_newline = &newline;
 	std::string &r_newline = newline;

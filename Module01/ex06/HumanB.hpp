@@ -17,14 +17,14 @@ public:
 		this->_name = name;
 	}
 
-	void setWeapon(class Weapon weapon)
+	void setWeapon(class Weapon &weapon)
 	{
 		this->_weapon = &weapon;
 	}
 
 	void attack()
 	{
-		std::cout << _name << "attacks with his" << (*_weapon).getType() << std::endl;
+		std::cout << _name << " attacks with his " << (*_weapon).getType() << std::endl;
 	}
 };
 
