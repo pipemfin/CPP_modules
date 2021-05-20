@@ -14,7 +14,7 @@ private:
 
 public:
 
-	Phonebook()		{	number_of_contacts = 0;	}
+	Phonebook();
 
 	int		get_number_of_contacts();
 	int		add_contacts();

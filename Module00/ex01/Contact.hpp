@@ -3,21 +3,20 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip>
 
 class Contact
 {
 private:
-	std::string	first_name;
-	std::string	last_name;
-	std::string	nickname;
-	std::string	login;
-	std::string	postal_adress;
-	std::string	phone_number;
-	std::string	birthday_date;
-	std::string	favorite_meal;
-	std::string	underwear_color;
-	std::string	darkest_secret;
+	std::string	_first_name;
+	std::string	_last_name;
+	std::string	_nickname;
+	std::string	_login;
+	std::string	_postal_adress;
+	std::string	_phone_number;
+	std::string	_birthday_date;
+	std::string	_favorite_meal;
+	std::string	_underwear_color;
+	std::string	_darkest_secret;
 
 public:
 

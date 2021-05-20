@@ -18,6 +18,18 @@ int		check_string_for_digits(std::string command)
 	return (std::stoi(command));
 }
 
+void	print_welcome_inscription()
+{
+	std::cout.fill('-');
+	std::cout << "|" << std::setw(40) << "Hello, welcome to Phonebook v0.9.9.9!" << "---|" << std::endl;
+	std::cout << "|" << std::setw(40) << "You can add and look added contacts" << "---|" << std::endl;
+	std::cout << "|" << std::setw(39) << "Pay attention! Exit from Phonebook" << "----|" << std::endl;
+	std::cout << "|" << std::setw(35) << "Will remove all contacts!" << "--------|" << std::endl;
+	std::cout.fill('_');
+	std::cout << "|" << std::setw(44) << "|" << std::endl;
+	std::cout.fill(' ');
+}
+
 void	print_other_inscription()
 {
 	std::cout.fill('-');
@@ -71,17 +83,6 @@ void	search_contacts(Phonebook *phonebook)
 	std::cout.fill(' ');
 }
 
-void	print_welcome_inscription()
-{
-	std::cout.fill('-');
-	std::cout << "|" << std::setw(40) << "Hello, welcome to Phonebook v0.9.9.9!" << "---|" << std::endl;
-	std::cout << "|" << std::setw(40) << "You can add and look added contacts" << "---|" << std::endl;
-	std::cout << "|" << std::setw(39) << "Pay attention! Exit from Phonebook" << "----|" << std::endl;
-	std::cout << "|" << std::setw(35) << "Will remove all contacts!" << "--------|" << std::endl;
-	std::cout.fill('_');
-	std::cout << "|" << std::setw(44) << "|" << std::endl;
-	std::cout.fill(' ');
-}
 
 int		main(void)
 {

@@ -9,7 +9,7 @@ private:
 	std::string type;
 	std::string name;
 
-public:
+public: 
 	Zombie(std::string type, std::string name)
 	{
 		this->type = type;

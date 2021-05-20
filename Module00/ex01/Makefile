@@ -2,8 +2,6 @@ NAME		= phonebook
 
 MAKER		= Makefile
 
-HEADER		= Header.hpp
-
 SRCS		= main.cpp Phonebook.cpp Contact.cpp
 
 OBJS		= $(SRCS:.cpp=.o)

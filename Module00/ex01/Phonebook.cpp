@@ -1,5 +1,10 @@
 #include "Phonebook.hpp"
 
+Phonebook::Phonebook()
+{
+	number_of_contacts = 0;
+}
+
 int		Phonebook::get_number_of_contacts()
 {	
 	return (number_of_contacts);	

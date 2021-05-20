@@ -10,6 +10,6 @@ int		main(void)
 	SomeZombie->announce();
 	delete SomeZombie;
 	Monolit.randomChump();
-	while(1)
+	while (1)
 		continue;
 }

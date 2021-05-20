@@ -13,12 +13,7 @@ private:
 	int		bag_with_drugs;
 
 public:
-	Pony()
-	{
-		leg_count = 4;
-		tail = 1;
-		bag_with_drugs = 1;
-	}
+	Pony();
 
 	void make_some_noize(void);
 };
