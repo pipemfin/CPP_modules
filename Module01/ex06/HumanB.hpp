@@ -12,20 +12,11 @@ private:
 	class Weapon	*_weapon;
 
 public:
-	HumanB(std::string name)
-	{
-		this->_name = name;
-	}
+	HumanB(std::string name);
 
-	void setWeapon(class Weapon &weapon)
-	{
-		this->_weapon = &weapon;
-	}
+	void setWeapon(class Weapon &weapon);
 
-	void attack()
-	{
-		std::cout << _name << " attacks with his " << (*_weapon).getType() << std::endl;
-	}
+	void attack();
 };
 
 #endif

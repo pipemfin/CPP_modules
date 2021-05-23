@@ -10,13 +10,10 @@ private:
 	std::string name;
 
 public:
-	
+	Zombie();
+	Zombie(std::string type, std::string name);
 
-	Zombie(std::string type, std::string name)
-	{
-		this->type = type;
-		this->name = name;
-	}
+	void set_name_type(std::string name, std::string type);
 
 	void announce(void);
 };

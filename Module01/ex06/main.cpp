@@ -3,20 +3,29 @@
 #include "HumanB.hpp"
 #include "Weapon.hpp"
 
-int main()
+void typeA()
 {
 	Weapon club = Weapon("crude spiked club");
 	HumanA bob("Bob", club);
 	bob.attack();
-	club.setType("big black dildo");
+	club.setType("annihilator");
 	bob.attack();
+}
 
-	club.setType("crude spiked club");
+void typeB()
+{
+	Weapon club = Weapon("crude spiked club");
 	HumanB jim("Jim");
 	jim.setWeapon(club);
 	jim.attack();
-	club.setType("big black dildo");
+	club.setType("annihilator");
 	jim.attack();
+}
+
+int main()
+{
+	typeA();
+	typeB();
 
 	return (0);
 }

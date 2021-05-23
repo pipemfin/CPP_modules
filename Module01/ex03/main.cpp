@@ -9,8 +9,6 @@ void	Polygon()
 int		main(void)
 {
 	Polygon();
-	
-	while(1)
-		continue;
+
 	return (0);
 }

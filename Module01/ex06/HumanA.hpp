@@ -12,15 +12,9 @@ private:
 	class Weapon	&_weapon;
 
 public:
-	HumanA(std::string name, class Weapon &weapon) : _weapon(weapon)
-	{
-		this->_name = name;
-	}
+	HumanA(std::string name, class Weapon &weapon);
 
-	void attack()
-	{
-		std::cout << _name << " attacks with his " << _weapon.getType() << std::endl;
-	}
+	void attack();
 };
 
 #endif

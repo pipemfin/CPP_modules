@@ -6,8 +6,6 @@
 class Pony
 {
 private:
-	double	weight;
-	double	height;
 	int		leg_count;
 	int		tail;
 	int		bag_with_drugs;

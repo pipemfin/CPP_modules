@@ -4,12 +4,20 @@
 
 int		handle_error(int argc, char **argv)
 {
+	std::ifstream	file(argv[1]);
+
+	if (!file)
+	{
+		if (!file)
+			std::cout << "File " << argv[1] << " can't be open to read!" << std::endl;
+		return (1);
+	}
 	if (argc > 4 or argc < 2)
 	{
 		std::cout << "Invalid count of input parametrs!" << std::endl;
 		return (1);
 	}
-	if (argv[1] == NULL || argv[2] == NULL || argv[3] == NULL)
+	if (argv[1] == NULL || argv[2] == NULL || argv[3] == NULL || !strlen(argv[2]) || !strlen(argv[3]))
 	{
 		std::cout << "Invalid parametrs in input!" << std::endl;
 		return (1);
@@ -41,10 +49,8 @@ int		process_input_file(char **argv)
 	std::ofstream	replace(filereplace);
 	std::string		string;
 
-	if (!file || !replace)
+	if (!replace)
 	{
-		if (!file)
-			std::cout << "File " << argv[1] << " can't be open to read!" << std::endl;
 		if (!replace)
 			std::cout << "File " << filereplace << " can't be open to write!" << std::endl;
 		return (1);

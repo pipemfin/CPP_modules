@@ -1,18 +1,20 @@
 #include <iostream>
 #include "Pony.hpp"
 
-void	ponyOnTheHeap()
+void	ponyOnTheStack()
 {
 	Pony pony;
+	std::cout << "*Pony on the stack*" << std::endl;
 	pony.make_some_noize();
 }
 
-void	ponyOnTheStack()
+void	ponyOnTheHeap()
 {
 	Pony *pony;
 
 	pony = new Pony;
-	(*pony).make_some_noize();
+	std::cout << "*Pony on the heap*" << std::endl;
+	pony->make_some_noize();
 	delete pony;
 }
 
