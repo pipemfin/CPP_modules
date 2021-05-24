@@ -7,8 +7,12 @@
 
 class FragTrap : public ClapTrap
 {
+private:
+	FragTrap();
 public:
 	FragTrap(std::string name);
+	FragTrap(const FragTrap &fragtrap);
+	FragTrap &operator=(const FragTrap &fragtrap);
 
 	void	vaulthunter_dot_exe(std::string const & target);
 

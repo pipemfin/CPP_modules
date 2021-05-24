@@ -16,11 +16,12 @@ private:
 	unsigned int	_melee_attack_damage;
 	unsigned int	_ranged_attack_damage;
 	unsigned int	_armor_damage_reduction;
+	FragTrap();
 
 public:
 	FragTrap(std::string name);
 	FragTrap(const FragTrap &fragtrap);
-	FragTrap& operator=(const FragTrap &fragtrap);
+	FragTrap &operator=(const FragTrap &fragtrap);
 
 	void	rangedAttack(std::string const & target);
 	void	meleeAttack(std::string const & target);

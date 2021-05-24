@@ -16,6 +16,35 @@ ScavTrap::ScavTrap(std::string name)  : ClapTrap(name)
 	this->_armor_damage_reduction = 3;
 }
 
+ScavTrap::ScavTrap(const ScavTrap &scavtrap)
+{
+	this->_type = scavtrap._type;
+	this->_hp = scavtrap._hp;
+	this->_max_hp = scavtrap._max_hp;
+	this->_ep = scavtrap._ep;
+	this->_max_ep = scavtrap._max_ep;
+	this->_level = scavtrap._level;
+	this->_melee_attack_damage = scavtrap._melee_attack_damage;
+	this->_ranged_attack_damage = scavtrap._ranged_attack_damage;
+	this->_armor_damage_reduction = scavtrap._armor_damage_reduction;
+}
+
+ScavTrap &ScavTrap::operator=(const ScavTrap &scavtrap)
+{
+	if (this == &scavtrap)
+		return (*this);
+	this->_type = scavtrap._type;
+	this->_hp = scavtrap._hp;
+	this->_max_hp = scavtrap._max_hp;
+	this->_ep = scavtrap._ep;
+	this->_max_ep = scavtrap._max_ep;
+	this->_level = scavtrap._level;
+	this->_melee_attack_damage = scavtrap._melee_attack_damage;
+	this->_ranged_attack_damage = scavtrap._ranged_attack_damage;
+	this->_armor_damage_reduction = scavtrap._armor_damage_reduction;
+	return (*this);
+}
+
 void	ScavTrap::challengeNewcomer()
 {
 	std::string challenge_array[5] = {"starts rolling around you and making loud noises", "starts cleaning his exhaust pipe",

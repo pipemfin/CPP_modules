@@ -16,6 +16,35 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_armor_damage_reduction = 5;
 }
 
+FragTrap::FragTrap(const FragTrap &fragtrap)
+{
+	this->_name = fragtrap._name;
+	this->_hp = fragtrap._hp;
+	this->_max_hp = fragtrap._max_hp;
+	this->_ep = fragtrap._ep;
+	this->_max_ep = fragtrap._max_ep;
+	this->_level = fragtrap._level;
+	this->_melee_attack_damage = fragtrap._melee_attack_damage;
+	this->_ranged_attack_damage = fragtrap._ranged_attack_damage;
+	this->_armor_damage_reduction = fragtrap._armor_damage_reduction;
+}
+
+FragTrap &FragTrap::operator=(const FragTrap &fragtrap)
+{
+	if (this == &fragtrap)
+		return (*this);
+	this->_name = fragtrap._name;
+	this->_hp = fragtrap._hp;
+	this->_max_hp = fragtrap._max_hp;
+	this->_ep = fragtrap._ep;
+	this->_max_ep = fragtrap._max_ep;
+	this->_level = fragtrap._level;
+	this->_melee_attack_damage = fragtrap._melee_attack_damage;
+	this->_ranged_attack_damage = fragtrap._ranged_attack_damage;
+	this->_armor_damage_reduction = fragtrap._armor_damage_reduction;
+	return (*this);
+}
+
 void	FragTrap::vaulthunter_dot_exe(std::string const & target)
 {
 	int	rand_numb;

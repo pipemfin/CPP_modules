@@ -1,5 +1,4 @@
 #include "ScavTrap.hpp"
-#include <string>
 
 ScavTrap::ScavTrap(std::string name)
 {

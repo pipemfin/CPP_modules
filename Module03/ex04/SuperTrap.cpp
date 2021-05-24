@@ -10,6 +10,35 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), FragTrap(name), NinjaTr
 	this->_armor_damage_reduction = 5;
 }
 
+SuperTrap::SuperTrap(const SuperTrap &supertrap)
+{
+	this->_type = supertrap._type;
+	this->_hp = supertrap._hp;
+	this->_max_hp = supertrap._max_hp;
+	this->_ep = supertrap._ep;
+	this->_max_ep = supertrap._max_ep;
+	this->_level = supertrap._level;
+	this->_melee_attack_damage = supertrap._melee_attack_damage;
+	this->_ranged_attack_damage = supertrap._ranged_attack_damage;
+	this->_armor_damage_reduction = supertrap._armor_damage_reduction;
+}
+
+SuperTrap &SuperTrap::operator=(const SuperTrap &supertrap)
+{
+	if (this == &supertrap)
+		return (*this);
+	this->_type = supertrap._type;
+	this->_hp = supertrap._hp;
+	this->_max_hp = supertrap._max_hp;
+	this->_ep = supertrap._ep;
+	this->_max_ep = supertrap._max_ep;
+	this->_level = supertrap._level;
+	this->_melee_attack_damage = supertrap._melee_attack_damage;
+	this->_ranged_attack_damage = supertrap._ranged_attack_damage;
+	this->_armor_damage_reduction = supertrap._armor_damage_reduction;
+	return (*this);
+}
+
 void	SuperTrap::rangedAttack(std::string const & target)
 {
 	FragTrap::rangedAttack(target);

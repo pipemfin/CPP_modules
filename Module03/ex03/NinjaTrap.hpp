@@ -7,8 +7,12 @@
 
 class NinjaTrap : public ClapTrap
 {
+private:
+	NinjaTrap();
 public:
 	NinjaTrap(std::string name);
+	NinjaTrap(std::string name);
+	NinjaTrap(const NinjaTrap &ninjatrap);
 
 	void	ninjaShoebox(ClapTrap &target);
 	void	ninjaShoebox(FragTrap &target);

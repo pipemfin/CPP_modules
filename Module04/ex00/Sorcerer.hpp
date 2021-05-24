@@ -3,6 +3,7 @@
 
 #include <string>
 #include <iostream>
+#include "Victim.hpp"
 
 class Sorcerer
 {
@@ -14,8 +15,11 @@ public:
 	Sorcerer(std::string name, std::string title);
 	Sorcerer(const Sorcerer &sorcerer);
 	Sorcerer& operator=(const Sorcerer &sorcerer);
+
 	std::string getName() const;
 	std::string getTitle() const;
+	void polymorph(Victim const &victim) const;
+
 	~Sorcerer();
 };
 
