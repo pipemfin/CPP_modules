@@ -5,18 +5,21 @@
 #include "ISpaceMarine.hpp"
 #include <iostream>
 
-class Squad : ISquad
+class Squad : public ISquad
 {
 	private:
 		int				_count;
-		ISpaceMarine	*_squad_begin;
+		ISpaceMarine	**_squad_begin;
 	public:
 		Squad();
 		Squad(const Squad &squad);
 		Squad &operator=(const Squad &squad);
-		int getCount();
-		ISpaceMarine *getUnit(int n);
+		virtual int getCount() const;
+		virtual ISpaceMarine* getUnit(int n) const;
+		virtual int push(ISpaceMarine *marine);
 		virtual ~Squad();
 };
 
 #endif
+
+

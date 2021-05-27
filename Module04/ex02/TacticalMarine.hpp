@@ -2,14 +2,17 @@
 #define TACTICALMARINE_HPP
 
 #include "ISpaceMarine.hpp"
+#include <string>
+#include <iostream>
 
 class TacticalMarine : public ISpaceMarine
 {
-	private:
-		TacticalMarine *next;
 	public:
-		virtual ~ISpaceMarine() {};
-		virtual ISpaceMarine* clone() const;
+		TacticalMarine();
+		TacticalMarine(const TacticalMarine &tacticalmarine);
+		TacticalMarine &operator=(const TacticalMarine &tacticalmarine);
+		virtual ~TacticalMarine();
+		virtual TacticalMarine* clone() const;
 		virtual void battleCry() const;
 		virtual void rangedAttack() const;
 		virtual void meleeAttack() const;
