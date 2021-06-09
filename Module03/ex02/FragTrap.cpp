@@ -14,9 +14,10 @@ FragTrap::FragTrap(std::string name) : ClapTrap(name)
 	this->_armor_damage_reduction = 5;
 }
 
-FragTrap::FragTrap(const FragTrap &fragtrap)
+FragTrap::FragTrap(const FragTrap &fragtrap) : ClapTrap(fragtrap._name)
 {
-	this->_name = fragtrap._name;
+	std::cout << this->_type << " " << this->_name << " to FR4G-TP update in progress!" << std::endl;
+	this->_type = "FR4G-TP";
 	this->_hp = fragtrap._hp;
 	this->_max_hp = fragtrap._max_hp;
 	this->_ep = fragtrap._ep;

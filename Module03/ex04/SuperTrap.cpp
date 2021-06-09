@@ -10,7 +10,7 @@ SuperTrap::SuperTrap(std::string name) : ClapTrap(name), FragTrap(name), NinjaTr
 	this->_armor_damage_reduction = 5;
 }
 
-SuperTrap::SuperTrap(const SuperTrap &supertrap)
+SuperTrap::SuperTrap(const SuperTrap &supertrap) : ClapTrap(supertrap._name), FragTrap(supertrap._name), NinjaTrap(supertrap._name)
 {
 	this->_type = supertrap._type;
 	this->_hp = supertrap._hp;

@@ -14,9 +14,10 @@ NinjaTrap::NinjaTrap(std::string name) : ClapTrap(name)
 	this->_armor_damage_reduction = 0;
 }
 
-NinjaTrap::NinjaTrap(const NinjaTrap &ninjatrap)
+NinjaTrap::NinjaTrap(const NinjaTrap &ninjatrap) : ClapTrap(ninjatrap._name)
 {
-	this->_type = ninjatrap._type;
+	std::cout << this->_type << " " << this->_name << " to INAC update in progress!" << std::endl;
+	this->_type = "INAC";
 	this->_hp = ninjatrap._hp;
 	this->_max_hp = ninjatrap._max_hp;
 	this->_ep = ninjatrap._ep;
@@ -31,6 +32,7 @@ NinjaTrap &NinjaTrap::operator=(const NinjaTrap &ninjatrap)
 {
 	if (this == &ninjatrap)
 		return (*this);
+	this->_name = ninjatrap._name;
 	this->_type = ninjatrap._type;
 	this->_hp = ninjatrap._hp;
 	this->_max_hp = ninjatrap._max_hp;

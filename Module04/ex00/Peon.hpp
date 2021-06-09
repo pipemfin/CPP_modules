@@ -13,7 +13,7 @@ public:
 	Peon &operator=(const Peon &peon);
 	virtual void getPolymorphed() const;
 
-	~Peon();
+	virtual ~Peon();
 };
 
 #endif

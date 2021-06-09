@@ -2,7 +2,7 @@
 
 ScavTrap::ScavTrap(std::string name)
 {
-	std::cout << "\033[1;41;37m*SC4V-TP " << name << " is here and ready to fight! beep-beep-beeeeeeep*\033[0m" << std::endl;
+	std::cout << "\033[1;41;37m*SC4V-TP " << name << " come straight form space! beep-beep-beeeeeeep*\033[0m" << std::endl;
 	this->_name = name;
 	this->_hp = 100;
 	this->_max_hp = 100;
@@ -86,5 +86,5 @@ void	ScavTrap::challengeNewcomer()
 
 ScavTrap::~ScavTrap()
 {
-	std::cout << "\033[1;41;37m*SC4V-TP " << this->_name << " utters a death moan*!\033[0m" << std::endl;
+	std::cout << "\033[1;41;37m*SC4V-TP " << this->_name << " hide in smoke*!\033[0m" << std::endl;
 }

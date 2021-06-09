@@ -12,7 +12,7 @@ int main(void)
 	ClapTrap ClapTrap("ClapTrap");
 	SuperTrap SuperTrap("SuperTrap");
 
-	SuperTrap.meleeAttack("123");
+	SuperTrap.meleeAttack("BadBoy");
 	SuperTrap.ninjaShoebox(ClapTrap);
 	SuperTrap.vaulthunter_dot_exe("Your ass");
 	SuperTrap.printStats();

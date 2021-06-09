@@ -14,8 +14,10 @@ ScavTrap::ScavTrap(std::string name)  : ClapTrap(name)
 	this->_armor_damage_reduction = 3;
 }
 
-ScavTrap::ScavTrap(const ScavTrap &scavtrap)
+ScavTrap::ScavTrap(const ScavTrap &scavtrap) : ClapTrap(scavtrap._name)
 {
+	std::cout << this->_type << " " << this->_name << " to SC4V-TP update in progress!" << std::endl;
+	this->_name = scavtrap._name;
 	this->_type = scavtrap._type;
 	this->_hp = scavtrap._hp;
 	this->_max_hp = scavtrap._max_hp;
