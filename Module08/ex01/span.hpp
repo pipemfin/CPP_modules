@@ -11,20 +11,19 @@ class Span
 	private:
 		std::vector<int>	_array;
 		unsigned int		_size;
-		unsigned int		_largest;
-		unsigned int		_prelargest;
-		unsigned int		_smallest;
 		Span();
 	public:
 		Span(unsigned int);
+		Span &operator=(const Span &span);
+		Span(const Span &span);
 		~Span();
 
-		void	addNumber(unsigned int N);
-		void	addNumber(unsigned int N, unsigned int range);
+		void	addNumber(int N);
+		void	addNumber(int N, unsigned int range);
 		int		shortestSpan();
 		int		longestSpan();
 
-		class SpanException : std::exception
+		class SpanException : public std::exception
 		{
 			private:
 				std::string _error;

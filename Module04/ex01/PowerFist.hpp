@@ -7,7 +7,6 @@
 
 class PowerFist : public AWeapon
 {
-	private:
 	public:
 		PowerFist();
 		PowerFist(const PowerFist &powerfist);

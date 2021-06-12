@@ -1,6 +1,6 @@
 #include "SuperMutant.hpp"
 
-SuperMutant::SuperMutant() : Enemy(175, "Super Mutant")
+SuperMutant::SuperMutant() : Enemy(170, "Super Mutant")
 {
 	std::cout << "Gaaah. Me want smash heads!" << std::endl;
 }

@@ -11,7 +11,7 @@ class Form;
 class Bureaucrat
 {
 	private:
-		std::string			_name;
+		const std::string	_name;
 		int					_grade;
 		Bureaucrat();
 	public:
@@ -33,7 +33,7 @@ class Bureaucrat
 				std::string _error;
 			public:
 				GradeTooHighException(std::string error);
-				const char* what() const throw();
+				virtual const char* what() const throw();
 				virtual ~GradeTooHighException() throw();
 		};
 
@@ -43,7 +43,7 @@ class Bureaucrat
 				std::string _error;
 			public:
 				GradeTooLowException(std::string error);
-				const char* what() const throw();
+				virtual const char* what() const throw();
 				virtual ~GradeTooLowException() throw();
 		};
 };

@@ -1,32 +1,53 @@
 #include "span.hpp"
 
+
 int main(void)
 {
-	Span span(10000);
-	// std::vector<int> array;
+	Span first_span(10000);
+	Span second_span(5000);
 
-	// array.push_back(5);
-	// array[0] = 123;
-	// std::cout << array[0] << std::endl;
-	// std::cout << span.shortestSpan() << std::endl;
-	for (int i = 0; i < 10000; ++i)
-		span.addNumber(i*2);
-	// span.addNumber(2);
-	std::cout << span.shortestSpan() << std::endl;
-	std::cout << span.longestSpan() << std::endl;
+	first_span.addNumber(5);
+	first_span.addNumber(7);
+	first_span.addNumber(12);
+
+	second_span.addNumber(9);
+	second_span.addNumber(99);
+	second_span.addNumber(999);
+
+	std::cout << "Shortest span in first array (elems=5,7,12) is: " << first_span.shortestSpan() << std::endl;
+	std::cout << "Longest span in first array (elems=5,7,12) is: " << first_span.longestSpan() << std::endl;
+
+	std::cout << "\nShortest span in second array (elems=5,7,12) is: " << second_span.shortestSpan() << std::endl;
+	std::cout << "Longest span in second array (elems=5,7,12) is: " << second_span.longestSpan() << std::endl;
+
+	std::cout << "\nUsing operator =: first_span = second_span, and then checking span again" << std::endl;
+	first_span = second_span;
+	std::cout << "\nShortest span in first array (elems=5,7,12) is: " << first_span.shortestSpan() << std::endl;
+	std::cout << "Longest span in first array (elems=5,7,12) is: " << first_span.longestSpan() << std::endl;
+
+	std::cout << "\nNow, we try to add more elements than we can add:" << std::endl;
+	try
+	{
+		first_span.addNumber(5, 1000000);
+	}
+	catch(const std::exception &e)
+	{
+		std::cerr << e.what() << '\n';
+	}
 	return (0);
 }
 
-// int main(void)
-// {
-// 	Span span(10);
-// 	span.addNumber(0);
-// 	span.addNumber(1000);
-// 	span.addNumber(500);
-// 	span.addNumber(11);
-// 	span.addNumber(750);
-// 	span.addNumber(2000);
-// 	std::cout << span.shortestSpan() << std::endl;
-// 	std::cout << span.longestSpan() << std::endl;
-// 	return (0);
-// }
+/* Main from subject
+int main(void)
+{
+	Span sp = Span(5);
+	sp.addNumber(5);
+	sp.addNumber(3);
+	sp.addNumber(17);
+	sp.addNumber(9);
+	sp.addNumber(11);
+	std::cout << sp.shortestSpan() << std::endl;
+	std::cout << sp.longestSpan() << std::endl;
+	return (0);
+}
+*/

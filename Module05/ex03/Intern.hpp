@@ -10,8 +10,12 @@ typedef Form* (*func)(std::string target);
 
 class Intern 
 {
+	private:
+		std::string _form_names[3];
+		Form *(*_forms[3])(std::string target);
+
 	public:
-		Intern() {};
+		Intern();
 		Intern(const Intern &intern);
 		Intern &operator=(const Intern &intern);
 		~Intern() {};

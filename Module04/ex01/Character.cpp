@@ -55,10 +55,7 @@ AWeapon* Character::getWeapon() const
 }
 
 
-Character::~Character()
-{
-
-}
+Character::~Character() {}
 
 std::ostream& operator<<(std::ostream &out,const Character &character)
 {

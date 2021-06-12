@@ -3,10 +3,10 @@
 
 template <typename T>
 
-void iter(T *a, unsigned lenght, void(*func)(T *arg))
+void iter(T *a, unsigned lenght, void(*func)(const T &arg))
 {
 	for (int i = 0; i < lenght; ++i)
-		func(&a[i]);
+		func(a[i]);
 }
 
 #endif

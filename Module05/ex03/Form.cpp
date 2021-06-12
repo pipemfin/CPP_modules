@@ -1,35 +1,29 @@
 #include "Form.hpp"
 
-Form::Form(std::string name, std::string target, int grade_to_execute, int grade_to_sign)
+Form::Form(std::string name, std::string target, int grade_to_sign, int grade_to_execute)
+: _name(name), _grade_to_execute(grade_to_execute), _grade_to_sign(grade_to_sign)
 {
-	this->_name = name;
 	this->_target = target;
 	this->_signed = false;
 	if (grade_to_execute > 150 || grade_to_sign > 150)
 		throw GradeTooHighException("GradeTooHighException");
 	if (grade_to_execute < 1 || grade_to_sign < 1)
 		throw GradeTooLowException("GradeTooLowException");
-	this->_grade_to_execute = grade_to_execute;
-	this->_grade_to_sign = grade_to_sign;
 }
 
 Form::Form(const Form &form)
+: _name(form.getName()), _grade_to_execute(form.getGradeExec()), _grade_to_sign(form.getGradeSign())
 {
-	this->_name = getName();
+	this->_target = form.getTarget();
 	this->_signed = form.getSign();
-	this->_grade_to_execute = form.getGradeExec();
-	this->_grade_to_sign = form.getGradeSign();
 }
 
 Form &Form::operator=(const Form &form)
 {
 	if (this == &form)
 		return (*this);
-	this->_name = getName();
-	this->_target = getName();
+	this->_target = form.getTarget();
 	this->_signed = form.getSign();
-	this->_grade_to_execute = form.getGradeExec();
-	this->_grade_to_sign = form.getGradeSign();
 	return (*this);
 }
 
@@ -94,15 +88,11 @@ const char *Form::DontSignedForm::what() const throw()
 
 std::ostream &operator<<(std::ostream &out, const Form &form)
 {
-	out << "This is ";
-	out << form.getName();
-	out << " form. Grade to sign ";
-	out << form.getGradeSign();
-	out << ". Grade to execute ";
-	out << form.getGradeExec();
+	out << "This is " << form.getName() << " form. Grade to sign ";
+	out << form.getGradeSign() << ". Grade to execute " << form.getGradeExec();
 	if (form.getSign() == true)
-		out << ". Already signed." << std::endl;
+		out << ". Already signed.";
 	else
-		out << ". Need to sign." << std::endl;
+		out << ". Need to sign.";
 	return (out);
 }

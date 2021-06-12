@@ -14,8 +14,8 @@ public:
 	SuperTrap(const SuperTrap &supertrap);
 	SuperTrap &operator=(const SuperTrap &supertrap);
 
-	void	rangedAttack(std::string const & target);
-	void	meleeAttack(std::string const & target);
+	using FragTrap::rangedAttack;
+	using NinjaTrap::meleeAttack;
 	void	printStats();
 
 	~SuperTrap();

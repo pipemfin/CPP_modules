@@ -39,16 +39,6 @@ SuperTrap &SuperTrap::operator=(const SuperTrap &supertrap)
 	return (*this);
 }
 
-void	SuperTrap::rangedAttack(std::string const & target)
-{
-	FragTrap::rangedAttack(target);
-}
-
-void	SuperTrap::meleeAttack(std::string const & target)
-{
-	NinjaTrap::meleeAttack(target);
-}
-
 void	SuperTrap::printStats()
 {
 	std::cout << "_______________________" << std::endl;

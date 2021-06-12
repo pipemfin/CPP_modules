@@ -35,7 +35,4 @@ void Enemy::takeDamage(int damage)
 		this->_hp = 0;
 }
 
-Enemy::~Enemy()
-{
-
-}
+Enemy::~Enemy() {}

@@ -11,10 +11,10 @@ Character::Character(std::string const &name)
 Character::Character(const Character &character)
 {
 	for (int i = 0; i < 4; ++i)
-	if (character.returnMateria(i) != NULL)
-		this->_inventory[i] = character.returnMateria(i)->clone();
-	else
-		this->_inventory[i] = NULL;
+		if (character.returnMateria(i) != NULL)
+			this->_inventory[i] = character.returnMateria(i)->clone();
+		else
+			this->_inventory[i] = NULL;
 	this->_name = character.getName();
 }
 
@@ -76,13 +76,7 @@ void Character::use(int idx, ICharacter& target)
 
 Character::~Character() 
 {
-	delete this->_inventory[0];
-	delete this->_inventory[1];
-	// for (int i = 0; i < 4; ++i)
-	// 	if (this->_inventory[i] != NULL)
-	// 	{
-	// 		std::cout << "yoy" << i << std::endl;
-	// 		delete this->_inventory[i];
-	// 		std::cout << "yoy" << std::endl;
-	// 	}
+	for (int i = 0; i < 4; ++i)
+		if (this->_inventory[i] != NULL)
+			delete this->_inventory[i];
 }

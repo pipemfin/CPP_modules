@@ -33,6 +33,8 @@ int main()
 	you->use(3, *bob);
 	me->unequip(1);
 	*incld = *src;
+	std::cout << tmp->getXP() << std::endl;
+	delete tmp;
 	tmp = incld->createMateria("cure");
 	std::cout << tmp->getType() << std::endl;
 	std::cout << tmp->getXP() << std::endl;

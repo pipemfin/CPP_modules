@@ -1,4 +1,5 @@
 #include <iostream>
+#include <limits>
 #include <string>
 
 int		handle_error(int argc, char **argv)
@@ -16,34 +17,29 @@ int		handle_error(int argc, char **argv)
 	return (0);
 }
 
-void	display_char(char *string)
+void	display_char(double doubled)
 {
-	int		integer;
 	char	character;
-	try
-	{
-		integer = std::stoi(string);
-	}
-	catch(const std::exception& e)
+	
+	if (doubled < std::numeric_limits<char>::max() and doubled >= std::numeric_limits<char>::min())
+		character = static_cast<char>(doubled);
+	else
 	{
 		std::cout << "char: impossible" << std::endl;
 		return ;
 	}
-	character = static_cast<char>(integer);
 	if (character < 32 || character > 126)
 		std::cout << "char: Non displayable" << std::endl;
 	else
 		std::cout << "char: '" << character << "'"<< std::endl;
 }
 
-void	display_int(char *string)
+void	display_int(double doubled)
 {
 	int integer = 0;
-	try
-	{
-		integer = std::stoi(string);
-	}
-	catch(const std::exception& e)
+	if (doubled < std::numeric_limits<int>::max() and doubled >= std::numeric_limits<int>::min())
+		integer = static_cast<int>(doubled);
+	else
 	{
 		std::cout << "int: impossible" << std::endl;
 		return ;
@@ -51,16 +47,17 @@ void	display_int(char *string)
 	std::cout << "int: " << integer << std::endl;
 }
 
-void	display_float(char *string)
+void	display_float(double doubled)
 {
 	float floating = 0;
 	std::cout.setf(std::ios::fixed);
 	std::cout.precision(1);
-	try
-	{
-		floating = std::stof(string);
-	}
-	catch(const std::exception& e)
+	if ((doubled < std::numeric_limits<float>::max() and doubled >= std::numeric_limits<float>::min())
+	 or (-doubled < std::numeric_limits<float>::max() and -doubled >= std::numeric_limits<float>::min())
+	 or (doubled != doubled) or (doubled == std::numeric_limits<double>::infinity())
+	 or (-doubled == std::numeric_limits<double>::infinity()))
+		floating = static_cast<float>(doubled);
+	else
 	{
 		std::cout << "float: impossible" << std::endl;
 		return ;
@@ -68,28 +65,25 @@ void	display_float(char *string)
 	std::cout << "float: " << floating << "f" << std::endl;
 }
 
-void	display_double(char *string)
-{
-	double doublen = 0;
-	try
-	{
-		doublen = std::stod(string);
-	}
-	catch(const std::exception& e)
-	{
-		std::cout << "double: impossible" << std::endl;
-		return ;
-	}
-	std::cout << "double: " << doublen << std::endl;
-}
-
 int		main(int argc, char **argv)
 {
 	if (handle_error(argc, argv))
 		return (1);
-	display_char(argv[1]);
-	display_int(argv[1]);
-	display_float(argv[1]);
-	display_double(argv[1]);
+	double doublen = 0;
+	try
+	{
+		doublen = std::stod(argv[1]);
+		display_char(doublen);
+		display_int(doublen);
+		display_float(doublen);
+		std::cout << "double: " << doublen << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cout << "char: impossible" << std::endl;
+		std::cout << "int: impossible" << std::endl;
+		std::cout << "float: impossible" << std::endl;
+		std::cout << "double: impossible" << std::endl;
+	}
 	return (0);
 }

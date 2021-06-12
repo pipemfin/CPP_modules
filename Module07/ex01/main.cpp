@@ -3,39 +3,37 @@
 #include <iostream>
 
 template <typename T>
-
-void show(T element)
+void print(const T &element) 
 {
-	std::cout << *element << std::endl;
+	std::cout << element << std::endl;
 }
 
 template <typename T>
-
-void doubling(T element)
+void print_dobuled_for_float(const T &element) 
 {
-	*element *= 2;
+	std::cout << element * 2 << std::endl;
 }
 
 int main(void)
 {
-	int *int_ptr = new int[10];
-	float *float_ptr = new float[10];
-	for (int i = 0; i < 10; ++i)
-		int_ptr[i] = i;
-	for (int i = 0; i < 10; ++i)
-		float_ptr[i] = i + 0.25;
+	const int integers[5] = {0,1,2,3,4};
+	float floats[5];
+	std::string strings[5] = {"i", "am", "close", "to", "finish"};
 
-	std::cout << "integers" << std::endl;
-	iter(int_ptr, 10, &show);
+	for (int i = 0; i < 5; ++i)
+		floats[i] = i;
+
+	std::cout << "array with integers" << std::endl;
+	iter(integers, 5, &print);
 	std::cout << "__________________________" << std::endl;
-	iter(int_ptr, 10, &doubling);
-	iter(int_ptr, 10, &show);
 
-
-	std::cout << "floats" << std::endl;
-	iter(float_ptr, 10, &show);
+	std::cout << "array with floats" << std::endl;
+	iter(floats, 5, &print_dobuled_for_float);
 	std::cout << "__________________________" << std::endl;
-	iter(float_ptr, 10, &doubling);
-	iter(float_ptr, 10, &show);
+
+	std::cout << "array with strings" << std::endl;
+	iter(strings, 5, &print);
+	std::cout << "__________________________" << std::endl;
+
 	return (0);
 }

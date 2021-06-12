@@ -1,13 +1,16 @@
 #ifndef ARRAY_HPP
 #define	ARRAY_HPP
 
+#include <exception>
+#include <string>
+
 template <class T>
 
 class Array
 {
 	private:
-		T	*_array;
-		int	_size;
+		T		*_array;
+		int		_size;
 	public:
 		Array()
 		{
@@ -45,18 +48,27 @@ class Array
 
 		T& operator[](int index) const
 		{
+			if (index >= this->_size || index < 0)
+				throw Array::OutOfRange("index ot of range");
 			return (this->_array[index]);
 		}
+
+		class OutOfRange : std::exception
+		{
+			private:
+				std::string _error;
+			public:
+				OutOfRange(std::string error) : _error(error) {};
+				virtual const char *what() const throw() { return _error.c_str(); };
+				virtual ~OutOfRange() throw() {};
+		};
 
 		~Array()
 		{
 			delete[] (this->_array);
 		}
 		
-		int Size(void) const
-		{
-			return (this->_size);
-		}
+		int Size(void) const	{	return (this->_size);}
 };
 
 #endif

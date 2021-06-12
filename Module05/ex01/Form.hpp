@@ -9,13 +9,13 @@ class Bureaucrat;
 class Form 
 {
 	private:
-		std::string		_name;
-		bool			_signed;
-		int				_grade_to_sign;	
-		int				_grade_to_execute;
+		const std::string		_name;
+		const int				_grade_to_execute;
+		const int				_grade_to_sign;	
+		bool					_signed;
 		Form();
 	public:
-		Form(std::string name, bool sign, int grade_to_execute, int grade_to_sign);
+		Form(std::string name, int grade_to_execute, int grade_to_sign);
 		Form(const Form &form);
 		Form &operator=(const Form &form);
 		~Form();

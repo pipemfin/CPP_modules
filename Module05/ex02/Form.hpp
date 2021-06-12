@@ -9,11 +9,11 @@ class Bureaucrat;
 class Form 
 {
 	private:
-		std::string		_name;
-		std::string		_target;
-		bool			_signed;
-		int				_grade_to_sign;	
-		int				_grade_to_execute;
+		const std::string	_name;
+		std::string			_target;
+		bool				_signed;
+		const int			_grade_to_execute;
+		const int			_grade_to_sign;	
 		Form();
 	public:
 		Form(std::string name, std::string target, int grade_to_execute, int grade_to_sign);

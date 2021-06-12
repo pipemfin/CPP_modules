@@ -4,22 +4,26 @@
 #include "ClassC.hpp"
 #include <iostream>
 
-Base * generate(void)
+Base* generate(void)
 {
 	int a;
-
-	a = rand()%4;
-	std::cout << a << std::endl;
-	switch(a)
+	a = rand()%3;
+	
+	if (a == 0)
 	{
-	case(0):
+		std::cout << "Generated class is A" << std::endl;
 		return (new classA);
-	case(1):
+	}
+	else if (a == 1)
+	{
+		std::cout << "Generated class is B" << std::endl;
 		return (new classB);
-	case(2):
+	}
+	else
+	{
+		std::cout << "Generated class is C" << std::endl;
 		return (new classC);
 	}
-	return (NULL);
 }
 
 void identify_from_pointer(Base *p)
@@ -30,41 +34,49 @@ void identify_from_pointer(Base *p)
 	A = dynamic_cast<classA*>(p);
 	B = dynamic_cast<classB*>(p);
 	C = dynamic_cast<classC*>(p);
+	std::cout << "Class identified from pointer is ";
 	if (A)
 		std::cout << "A" << std::endl;
 	else if (B)
 		std::cout << "B" << std::endl;
 	else if (C)
 		std::cout << "C" << std::endl;
-	else
-		std::cout << "NULL" << std::endl;
 }
 
 void identify_from_reference(Base &p)
 {
-	classA &A = dynamic_cast<classA&>(p);
-	classB *B;
-	classC *C;
-	// A = dynamic_cast<classA&>(p);
-	B = dynamic_cast<classB*>(&p);
-	C = dynamic_cast<classC*>(&p);
-	// if (&A)
-	// 	std::cout << "A" << std::endl;
-	if (B)
-		std::cout << "B" << std::endl;
-	else if (C)
-		std::cout << "C" << std::endl;
-	else
+	std::cout << "Class identified from reference is ";
+	try
 	{
-		std::cout << "NULL" << std::endl;
+		classA A = dynamic_cast<classA&>(p);
+		std::cout << "A" << std::endl;
+		return ;
 	}
+	catch(const std::exception& e)	{}
+	try
+	{
+		classB B = dynamic_cast<classB&>(p);
+		std::cout << "B" << std::endl;
+	}
+	catch(const std::exception& e)	{}
+	try
+	{
+		classC C = dynamic_cast<classC&>(p);
+		std::cout << "C" << std::endl;
+	}
+	catch(const std::exception& e)	{}
 }
 
 int main(void)
 {
 	srand(time(0));
 	Base *mysterious = generate();
-	// identify_from_pointer(mysterious);
+	if (!mysterious)
+	{
+		std::cout << "Malloc error!" << std::endl;
+		return (1);
+	}
+	identify_from_pointer(mysterious);
 	identify_from_reference(*mysterious);
 	return (0);
 }

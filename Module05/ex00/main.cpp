@@ -14,4 +14,6 @@ int main()
 	{
 		std::cout << e.what() << std::endl;
 	}
+	BureaucratHigh = BureaucratLow;
+	std::cout << BureaucratHigh.getGrade() << std::endl;
 }
