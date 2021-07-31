@@ -47,6 +47,3 @@ Short description of every CPP-module:
 
 If directory include makefile - use it, in other case just compile files with next command: "clang++ -Wall -Wextra -Werror *.cpp"
 
-## Subjects for every modules
-
-You can find checklists for every module by next [link](https://github.com/secondfry/school21-checklists).
